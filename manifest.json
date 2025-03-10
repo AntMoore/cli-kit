@@ -2,7 +2,7 @@
     "scripts": [
         {
             "name": "Git clone and enter directory",
-            "description": "Clones a git project using a git URL and then navigates into newly created directory.",
+            "description": "Clones a git project using a git URL and then navigates into newly created directory",
             "command": "gclone",
             "flags": [
                 "-h",
@@ -12,7 +12,7 @@
         },
         {
             "name": "List available scripts",
-            "description": "Displays all available CLI scripts in the manifest.",
+            "description": "Displays all available CLI scripts in the manifest",
             "command": "listscripts",
             "aliases": [
                 "lcs"
@@ -21,7 +21,7 @@
         },
         {
             "name": "Go to projects",
-            "description": "Navigates to the projects folder.",
+            "description": "Navigates to the projects folder",
             "command": "gotoprojects",
             "aliases": [
                 "gtp"
