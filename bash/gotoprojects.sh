@@ -1,7 +1,10 @@
 #!/bin/bash
 
 gotoprojects() {
-    cd ~/documents/development/projects
+    SCRIPT_DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+    source "$SCRIPT_DIR/../config"
+
+    cd "$PROJECTS_PATH"
 }
 
 # Create an alias for gotoprojects()
