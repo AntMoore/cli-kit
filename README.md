@@ -5,7 +5,7 @@ If you enter the below script into `~/.bashrc`, then it will auto load these scr
 
 ```shell
 # START custom script loading
-CLI_KIT_DIR="/c/Users/Antonio.Moore/Documents/development/projects/cli-kit"
+CLI_KIT_DIR="<PATH_TO_THIS_REPO>" #e.g. /c/user/dev/cli-kit
 
 while IFS= read -r script_path; do
     script_path=$(echo "$script_path" | tr -d '\r')  # Remove ^M characters
