@@ -21,7 +21,7 @@
         },
         {
             "name": "Go to projects",
-            "description": "Navigates to the projects folder",
+            "description": "Navigates to the projects folder (~/documents/development/projects)",
             "command": "gotoprojects",
             "aliases": [
                 "gtp"
