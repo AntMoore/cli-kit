@@ -1,0 +1,38 @@
+{
+    "scripts": [
+        {
+            "name": "Git clone and enter directory",
+            "description": "Clones a git project using a git URL and then navigates into newly created directory.",
+            "command": "gclone",
+            "flags": [
+                "-h",
+                "--help"
+            ],
+            "location": "bash/gclone.sh"
+        },
+        {
+            "name": "List available scripts",
+            "description": "Displays all available CLI scripts in the manifest.",
+            "command": "listscripts",
+            "aliases": [
+                "lcs"
+            ],
+            "location": "bash/listscripts.sh"
+        },
+        {
+            "name": "Go to projects",
+            "description": "Navigates to the projects folder.",
+            "command": "gotoprojects",
+            "aliases": [
+                "gtp"
+            ],
+            "location": "bash/gotoprojects.sh"
+        },
+        {
+            "name": "Reload scripts",
+            "description": "Shorthand for 'source ~/.bashrc'",
+            "command": "reloadscripts",
+            "location": "bash/reloadscripts.sh"
+        }
+    ]
+}
