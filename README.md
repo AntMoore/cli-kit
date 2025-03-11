@@ -2,12 +2,13 @@
 A collection of useful CLI commands for various scenarios
 
 ## Available scripts
-| **Name**                    | **Command**       | **Aliases**     | **Description**                                                                | **Location**           |
-|-----------------------------|-------------------|-----------------|--------------------------------------------------------------------------------|------------------------|
+| **Name**                     | **Command**       | **Aliases**     | **Description**                                                                 | **Location**           |
+|------------------------------|-------------------|-----------------|---------------------------------------------------------------------------------|------------------------|
 | List available scripts       | listscripts       | lcs             | Displays all available CLI scripts in the manifest                              | bash/listscripts.sh    |
+| Reload scripts               | reloadscripts     |                 | Shorthand for 'source ~/.bashrc'                                                | bash/reloadscripts.sh  |
 | Git clone and enter directory| gclone            |                 | Clones a git project using a git URL and then navigates into newly created directory | bash/gclone.sh         |
 | Go to projects               | gotoprojects      | gtp             | Navigates to the projects folder, defined by the PROJECTS_PATH variable in config file | bash/gotoprojects.sh   |
-| Reload scripts               | reloadscripts     |                 | Shorthand for 'source ~/.bashrc'                                                | bash/reloadscripts.sh  |
+| Go sln                       | gosln             | sln             | Shorthand for 'start *.sln'                                                     | bash/gotoprojects.sh   |
 
 ## Loading the scripts
 If you enter the below script into `~/.bashrc`, then it will auto load these scripts from the manifest.json, using the location property

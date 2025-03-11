@@ -1,6 +1,21 @@
 {
     "scripts": [
         {
+            "name": "List available scripts",
+            "description": "Displays all available CLI scripts in the manifest",
+            "command": "listscripts",
+            "aliases": [
+                "lcs"
+            ],
+            "location": "bash/listscripts.sh"
+        },
+        {
+            "name": "Reload scripts",
+            "description": "Shorthand for 'source ~/.bashrc'",
+            "command": "reloadscripts",
+            "location": "bash/reloadscripts.sh"
+        },
+        {
             "name": "Git clone and enter directory",
             "description": "Clones a git project using a git URL and then navigates into newly created directory",
             "command": "gclone",
@@ -9,15 +24,6 @@
                 "--help"
             ],
             "location": "bash/gclone.sh"
-        },
-        {
-            "name": "List available scripts",
-            "description": "Displays all available CLI scripts in the manifest",
-            "command": "listscripts",
-            "aliases": [
-                "lcs"
-            ],
-            "location": "bash/listscripts.sh"
         },
         {
             "name": "Go to projects",
@@ -29,10 +35,13 @@
             "location": "bash/gotoprojects.sh"
         },
         {
-            "name": "Reload scripts",
-            "description": "Shorthand for 'source ~/.bashrc'",
-            "command": "reloadscripts",
-            "location": "bash/reloadscripts.sh"
+            "name": "Go sln",
+            "description": "Shorthand for 'start *.sln'",
+            "command": "gosln",
+            "aliases": [
+                "sln"
+            ],
+            "location": "bash/gosln.sh"
         }
     ]
 }
