@@ -27,7 +27,7 @@
         },
         {
             "name": "Go to repo",
-            "description": "Opens the GitHub repo in the default browser",
+            "description": "Opens the GitHub repo in the default browser. Use '-cb' or '--current-branch' to open the current branch if it exists remotely.",
             "command": "gorepo",
             "aliases": [
                 "gogit",
