@@ -7,6 +7,7 @@ A collection of useful CLI commands for various scenarios
 | List available scripts       | listscripts       | lcs             |                 | Displays all available CLI scripts in the manifest                              | bash/listscripts.sh    |
 | Reload scripts               | reloadscripts     |                 |                 | Shorthand for 'source ~/.bashrc'                                                | bash/reloadscripts.sh  |
 | Git clone and enter directory| gclone            |                 | -h, --help      | Navigates to the projects folder (see Go to projects), then clones a git project using a git URL and then navigates into newly created directory | bash/gclone.sh         |
+| Go to repo                   |                   | gogit, gogithub |                 | Opens the GitHub repo in the default browser | bash/gorepo.sh   |
 | Go to projects               | gotoprojects      | gtp             |                 | Navigates to the projects folder, defined by the PROJECTS_PATH variable in config file | bash/gotoprojects.sh   |
 | Go sln                       | gosln             | sln             |                 | Shorthand for 'start *.sln'                                                     | bash/gosln.sh          |
 | Playground                   | goplay            |                 |                 | A place to test scripts                                                         | bash/playground.sh     |

@@ -26,6 +26,16 @@
             "location": "bash/gclone.sh"
         },
         {
+            "name": "Go to repo",
+            "description": "Opens the GitHub repo in the default browser",
+            "command": "gorepo",
+            "aliases": [
+                "gogit",
+                "gogithub"
+            ],
+            "location": "bash/gorepo.sh"
+        },
+        {
             "name": "Go to projects",
             "description": "Navigates to the projects folder, defined by the PROJECTS_PATH variable in config file",
             "command": "gotoprojects",
