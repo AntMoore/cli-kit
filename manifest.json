@@ -26,6 +26,16 @@
             "location": "bash/gclone.sh"
         },
         {
+            "name": "Git push (with upstream setting)",
+            "description": "Will check if there's an upstream branch that matches current branch, calls 'git push' if upstream exists, creates it if it doesn't",
+            "command": "gpush",
+            "flags": [
+                "-h",
+                "--help"
+            ],
+            "location": "bash/gpush.sh"
+        },
+        {
             "name": "Go to repo",
             "description": "Opens the GitHub repo in the default browser. Use '-cb' or '--current-branch' to open the current branch if it exists remotely.",
             "command": "gorepo",
