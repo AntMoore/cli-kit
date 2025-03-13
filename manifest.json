@@ -55,6 +55,15 @@
             "location": "bash/gotoprojects.sh"
         },
         {
+            "name": "List projects",
+            "description": "Lists folders in projects",
+            "command": "lsprojects",
+            "aliases": [
+                "lsp"
+            ],
+            "location": "bash/lsprojects.sh"
+        },
+        {
             "name": "Go sln",
             "description": "Shorthand for 'start *.sln'",
             "command": "gosln",
