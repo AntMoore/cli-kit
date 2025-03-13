@@ -1,5 +1,9 @@
 # cli-kit
-A collection of useful CLI commands for various scenarios
+A collection of useful CLI commands for various scenarios, built for Windows machines.
+
+## Requirements
+
+In order to implement these scripts as suggested in [Loading the scripts](#loading-the-scripts), and to run some of the scripts themselves, you will require the [jq package](https://jqlang.org/). 
 
 ## Available scripts
 | **Name**                     | **Command**    | **Aliases**     | **Flags**  | **Description**                                                                 | **Location**           |
@@ -10,7 +14,7 @@ A collection of useful CLI commands for various scenarios
 | Git push (with upstream setting)| gpush       |                 |            | Will check if there's an upstream branch that matches current branch, calls 'git push' if upstream exists, creates it if it doesn't | bash/gpush.sh |
 | Go to repo                   | gorepo         | gogit, gogithub |            | Opens the GitHub repo in the default browser. Use '-cb' or '--current-branch' to open the current branch if it exists remotely. | bash/gorepo.sh |
 | Go to projects               | gotoprojects   | gtp             |            | Navigates to the projects folder, defined by the PROJECTS_PATH variable in config file | bash/gotoprojects.sh |
-| List projects                | lsprojects     | lsp             |            | Lists folders in projects                                                       | bash/lsprojects.sh     |
+| List projects                | lsprojects     | lsp             |            | Lists folders in projects, accepts all flags provided by `ls` command.                                                     | bash/lsprojects.sh     |
 | Go sln                       | gosln          | sln             |            | Shorthand for 'start *.sln'                                                     | bash/gosln.sh          |
 | Playground                   | goplay         |                 |            | A place to test scripts                                                         | bash/playground.sh     |
 

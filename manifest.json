@@ -56,7 +56,7 @@
         },
         {
             "name": "List projects",
-            "description": "Lists folders in projects",
+            "description": "Lists folders in projects, accepts all flags provided by ls command",
             "command": "lsprojects",
             "aliases": [
                 "lsp"
