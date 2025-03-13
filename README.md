@@ -14,7 +14,7 @@ In order to implement these scripts as suggested in [Loading the scripts](#loadi
 | Git push (with upstream setting)| gpush       |                 |            | Will check if there's an upstream branch that matches current branch, calls 'git push' if upstream exists, creates it if it doesn't | bash/gpush.sh |
 | Go to repo                   | gorepo         | gogit, gogithub |            | Opens the GitHub repo in the default browser. Use '-cb' or '--current-branch' to open the current branch if it exists remotely. | bash/gorepo.sh |
 | Go to projects               | gotoprojects   | gtp             |            | Navigates to the projects folder, defined by the PROJECTS_PATH variable in config file | bash/gotoprojects.sh |
-| List projects                | lsprojects     | lsp             |            | Lists folders in projects, accepts all flags provided by `ls` command.                                                     | bash/lsprojects.sh     |
+| List projects                | lsprojects     | lsp             |            | Lists folders in projects, accepts all flags provided by `ls` command                                                     | bash/lsprojects.sh     |
 | Go sln                       | gosln          | sln             |            | Shorthand for 'start *.sln'                                                     | bash/gosln.sh          |
 | Playground                   | goplay         |                 |            | A place to test scripts                                                         | bash/playground.sh     |
 
@@ -37,6 +37,8 @@ while IFS= read -r script_path; do
 done < <(jq -r '.scripts[].location' "$CLI_KIT_DIR/manifest.json" | tr -d '\r')
 # END custom script loading
 ```
+
+After updating the `~/.bashrc` file, you will need to reload your shell window. Run `lcs` to show the list of available scripts provided by this package.
 
 ## Config file
 The `config` file contains key configuration settings, such as the `PROJECTS_PATH`, which defines the directory for your development projects. This allows scripts to dynamically reference the path, making the setup flexible and easily customizable across different environments.
