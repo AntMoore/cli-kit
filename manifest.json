@@ -34,6 +34,12 @@
                 "--help"
             ],
             "location": "bash/gpush.sh"
+        },       
+        {
+            "name": "Git submodule update",
+            "description": "Will update git submodules recursively",
+            "command": "gsubup",
+            "location": "bash/gsubup.sh"
         },
         {
             "name": "Go to repo",

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 listscripts() {
-    CLI_KIT_DIR=~/Documents/development/projects/cli-kit
-    MANIFEST="$CLI_KIT_DIR/manifest.json"
+    SCRIPT_DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+    MANIFEST="$SCRIPT_DIR/../manifest.json"
 
     # ANSI color codes
     RED="\e[0;31m"
