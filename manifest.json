@@ -17,7 +17,7 @@
         },
         {
             "name": "Git clone and enter directory",
-            "description": "Navigates to the projects folder (see Go to projects), then clones a git project using a git URL and then navigates into newly created directory",
+            "description": "Clones a git project using a git URL and then navigates into newly created directory",
             "command": "gclone",
             "flags": [
                 "-h",

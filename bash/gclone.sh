@@ -8,9 +8,9 @@ gclone() {
     fi
 
     # Navigate to the projects folder before trying to clone
-    echo "Navigating to projects folder"
-    echo
-    gotoprojects
+    # echo "Navigating to projects folder"
+    # echo
+    # gotoprojects
 
     local BLUE="\e[1;34m"
     local YELLOW="\e[1;33m"
