@@ -17,11 +17,13 @@
         },
         {
             "name": "Git clone and enter directory",
-            "description": "Clones a git project using a git URL and then navigates into newly created directory",
+            "description": "Clones a git project using a git URL or a repository name (with -b/--basic flag) and then navigates into the newly created directory",
             "command": "gclone",
             "flags": [
                 "-h",
-                "--help"
+                "--help",
+                "-b",
+                "--basic"
             ],
             "location": "bash/gclone.sh"
         },
@@ -71,10 +73,14 @@
         },
         {
             "name": "Go sln",
-            "description": "Shorthand for 'start *.sln'",
+            "description": "Opens the first .sln file it finds by default, or all .sln files (including nested ones) when using the -a/--all flag",
             "command": "gosln",
             "aliases": [
                 "sln"
+            ],
+            "flags": [
+                "-a",
+                "--all"
             ],
             "location": "bash/gosln.sh"
         },
@@ -83,6 +89,15 @@
             "description": "A place to test scripts",
             "command": "goplay",
             "location": "bash/playground.sh"
+        },
+        {
+            "name": "Git Status Viewer",
+            "description": "Provides a detailed overview of the current Git repository, including branch, untracked files, changes, and upstream status.",
+            "command": "gstatus",
+            "aliases": [
+                "gst"
+            ],
+            "location": "bash/gstatus.sh"
         }
     ]
 }

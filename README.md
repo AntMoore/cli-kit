@@ -17,6 +17,7 @@ In order to implement these scripts as suggested in [Loading the scripts](#loadi
 | Go to projects               | gotoprojects   | gtp             |            | Navigates to the projects folder, defined by the PROJECTS_PATH variable in config file | [bash/gotoprojects.sh](./bash/gotoprojects.sh) |
 | List projects                | lsprojects     | lsp             |            | Lists folders in projects, accepts all flags provided by `ls` command           | [bash/lsprojects.sh](./bash/lsprojects.sh) |
 | Go sln                       | gosln          | sln             | -a, --all | Opens the first .sln file it finds by default, or all .sln files (including nested ones) when using the -a/--all flag | [bash/gosln.sh](./bash/gosln.sh) |
+| Git Status Viewer           | gstatus        | gst            |            | Provides a detailed overview of the current Git repository, including branch, untracked files, changes, and upstream status. | [bash/gstatus.sh](./bash/gstatus.sh) |
 | Playground                   | goplay         |                 |            | A place to test scripts                                                         | [bash/playground.sh](./bash/playground.sh) |
 
 ## Loading the scripts
@@ -31,6 +32,9 @@ while IFS= read -r script_path; do
     full_path="$CLI_KIT_DIR/$script_path"
     
     if [[ -f "$full_path" ]]; then
+        echo "Loading $full_path"
+        echo 
+
         source "$full_path"
     else
         echo "ERROR: File not found - $full_path"
