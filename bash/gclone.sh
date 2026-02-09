@@ -3,7 +3,7 @@
 gclone() {
     # Check if no arguments are provided
     if [[ $# -eq 0 ]]; then
-        echo "Usage: gclone <repository-url>"
+        echo "Usage: gclone [-b|--basic] <repository-url|repository-name>"
         return 1
     fi
 
@@ -18,27 +18,37 @@ gclone() {
 
     # Handle --help or -h flag
     if [[ "$1" == "--help" || "$1" == "-h" ]]; then
-        echo "Usage: gclone <repository-url>"
+        echo "Usage: gclone [-b|--basic] <repository-url|repository-name>"
         echo "Clones a Git repository and automatically enters the cloned directory."
         echo
         echo "Options:"
         echo "  -h, --help     Show this help message"
+        echo "  -b, --basic    Provide only the repository name (e.g., 'repo-name')"
         return 0
     fi
 
-    local repo_name="$(basename "$1" .git)"
+    local repo_url="$1"
+
+    # Handle -b or --basic flag
+    if [[ "$1" == "-b" || "$1" == "--basic" ]]; then
+        if [[ -z "$2" ]]; then
+            echo "Error: Repository name is required when using -b or --basic flag."
+            return 1
+        fi
+        repo_url="https://github.com/finova-mso/$2.git"
+    fi
+
+    local repo_name="$(basename "$repo_url" .git)"
 
     if [[ -d "$repo_name" ]]; then
         echo -e ${YELLOW}"Repo already exists, navigating to folder"${RESET}
         echo
 
-        cd "$(basename "$1" .git)"
+        cd "$repo_name"
     else
         echo -e ${BLUE}"Cloning the repo down, and navigating to folder"${RESET}
         echo
 
-        # Clone the repository and cd into it
-        git clone "$1" && cd "$(basename "$1" .git)"
+        git clone "$repo_url" && cd "$repo_name"
     fi
-
 }
