@@ -63,6 +63,17 @@
             "location": "bash/gotoprojects.sh"
         },
         {
+            "name": "Select project",
+            "description": "Shows a numbered project menu and lets you choose one to cd into",
+            "command": "selectproject",
+            "aliases": [
+                "sp",
+                "goproject",
+                "gpj"
+            ],
+            "location": "bash/selectproject.sh"
+        },
+        {
             "name": "List projects",
             "description": "Lists folders in projects, accepts all flags provided by ls command",
             "command": "lsprojects",
