@@ -4,7 +4,11 @@
 # Displays a numbered list of project directories and changes into the selected one.
 #
 # Usage:
-#   selectproject
+#   selectproject [-f <term>]
+#
+# Flags:
+#   -f, --filter <term>  (optional) case-insensitive substring; only folders
+#                        whose names contain the term will be shown.
 selectproject() {
     # Resolve this script's directory so config can be sourced reliably even when
     # the command is invoked from a different working directory.
@@ -21,6 +25,21 @@ selectproject() {
     BOLD="\e[1m"
     RESET="\e[0m"
 
+    # Parse flags.
+    local filter=""
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -f|--filter)
+                filter="$2"
+                shift 2
+                ;;
+            *)
+                echo -e "${RED}Unknown option:${RESET} $1"
+                return 1
+                ;;
+        esac
+    done
+
     # Use the projects folder from config as the target directory.
     local target_dir=$PROJECTS_PATH
 
@@ -33,16 +52,27 @@ selectproject() {
     # Build a sorted list of immediate child directories only.
     # - "$target_dir"/*/ matches direct folders under target_dir
     # - basename strips full paths to just folder names
+    # - optional filter: skip entries that don't contain the search term
     # - mapfile loads results into the 'projects' Bash array
     mapfile -t projects < <(
         for path in "$target_dir"/*/; do
-            [[ -d "$path" ]] && basename "${path%/}"
+            [[ -d "$path" ]] || continue
+            local name
+            name=$(basename "${path%/}")
+            if [[ -n "$filter" && "${name,,}" != *"${filter,,}"* ]]; then
+                continue
+            fi
+            echo "$name"
         done | sort
     )
 
     # Stop if there are no selectable project folders.
     if [[ ${#projects[@]} -eq 0 ]]; then
-        echo -e "${YELLOW}No projects found in:${RESET} $target_dir"
+        if [[ -n "$filter" ]]; then
+            echo -e "${YELLOW}No projects matching${RESET} ${BOLD}${filter}${RESET} ${YELLOW}found in:${RESET} $target_dir"
+        else
+            echo -e "${YELLOW}No projects found in:${RESET} $target_dir"
+        fi
         return 1
     fi
 
@@ -58,7 +88,12 @@ selectproject() {
 
     # Print menu header with project count and location context.
     echo ""
-    echo -e "${GREEN}Select a project${RESET} ${YELLOW}(${#projects[@]} found)${RESET}"
+    if [[ -n "$filter" ]]; then
+        echo -e "${GREEN}Select a project${RESET} ${YELLOW}(${#projects[@]} found, filtered by: ${BOLD}${filter}${RESET}${YELLOW})${RESET}"
+    else
+        echo -e "${GREEN}Select a project${RESET} ${YELLOW}(${#projects[@]} found)${RESET}"
+    fi
+    echo ""
     echo -e "${BLUE}Location:${RESET} $target_dir"
     echo -e "$separator"
 

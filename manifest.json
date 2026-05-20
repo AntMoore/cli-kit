@@ -64,8 +64,12 @@
         },
         {
             "name": "Select project",
-            "description": "Shows a numbered project menu and lets you choose one to cd into",
+            "description": "Shows a numbered project menu and lets you choose one to cd into. Accepts an optional filter flag to narrow results by a case-insensitive substring match on the folder name",
             "command": "selectproject",
+            "flags": [
+                "-f",
+                "--filter"
+            ],
             "aliases": [
                 "sp",
                 "goproject",
