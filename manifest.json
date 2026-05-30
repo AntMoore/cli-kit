@@ -100,6 +100,19 @@
             "location": "bash/gosln.sh"
         },
         {
+            "name": "Go slnx",
+            "description": "Opens the first .slnx file it finds by default, or all .slnx files (including nested ones) when using the -a/--all flag",
+            "command": "goslnx",
+            "aliases": [
+                "slnx"
+            ],
+            "flags": [
+                "-a",
+                "--all"
+            ],
+            "location": "bash/goslnx.sh"
+        },
+        {
             "name": "Playground",
             "description": "A place to test scripts",
             "command": "goplay",
