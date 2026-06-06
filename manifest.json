@@ -113,6 +113,21 @@
             "location": "bash/goslnx.sh"
         },
         {
+            "name": "Project snapshot",
+            "description": "Creates a shareable project snapshot of the current folder, excluding common non-essential folders",
+            "command": "snapshotProject",
+            "aliases": [
+                "snapproj"
+            ],
+            "flags": [
+                "-h",
+                "--help",
+                "-o",
+                "--output"
+            ],
+            "location": "bash/snapshotProject.sh"
+        },
+        {
             "name": "Playground",
             "description": "A place to test scripts",
             "command": "goplay",

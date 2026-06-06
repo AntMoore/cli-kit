@@ -3,7 +3,10 @@ A collection of useful CLI commands for various scenarios, built for Windows mac
 
 ## Requirements
 
-In order to implement these scripts as suggested in [Loading the scripts](#loading-the-scripts), and to run some of the scripts themselves, you will require the [jq package](https://jqlang.org/). 
+In order to implement these scripts as suggested in [Loading the scripts](#loading-the-scripts), and to run some of the scripts themselves, you will require:
+
+- [jq](https://jqlang.org/) (used by script loading and script discovery)
+- zip (used by the `snapshotProject` command)
 
 ## Available scripts
 | **Name**                     | **Command**    | **Aliases**     | **Flags**  | **Description**                                                                 | **Location**           |
@@ -19,6 +22,7 @@ In order to implement these scripts as suggested in [Loading the scripts](#loadi
 | List projects                | lsprojects     | lsp             |            | Lists folders in projects, accepts all flags provided by `ls` command           | [bash/lsprojects.sh](./bash/lsprojects.sh) |
 | Go sln                       | gosln          | sln             | -a, --all | Opens the first .sln file it finds by default, or all .sln files (including nested ones) when using the -a/--all flag | [bash/gosln.sh](./bash/gosln.sh) |
 | Go slnx                      | goslnx         | slnx            | -a, --all | Opens the first .slnx file it finds by default, or all .slnx files (including nested ones) when using the -a/--all flag | [bash/goslnx.sh](./bash/goslnx.sh) |
+| Project snapshot             | snapshotProject| snapproj        | -h, --help, -o, --output | Creates a shareable project snapshot in `PROJECTS_PATH/ProjectZips`, excluding common non-essential folders | [bash/snapshotProject.sh](./bash/snapshotProject.sh) |
 | Git Status Viewer           | gstatus        | gst            |            | Provides a detailed overview of the current Git repository, including branch, untracked files, changes, and upstream status. | [bash/gstatus.sh](./bash/gstatus.sh) |
 | Playground                   | goplay         |                 |            | A place to test scripts                                                         | [bash/playground.sh](./bash/playground.sh) |
 
