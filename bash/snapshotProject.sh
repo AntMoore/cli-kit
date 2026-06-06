@@ -43,7 +43,7 @@ snapshotProject() {
                 echo "Usage: snapshotProject [-o|--output <zip-file-name-or-path>]"
                 echo "Creates a shareable project snapshot of the current folder."
                 echo
-                echo "Default output: <PROJECTS_PATH>/ProjectZips/<current-folder>-<yyyMMdd-HHmmss>.zip"
+                echo "Default output: <PROJECTS_PATH>/ProjectSnapshots/<current-folder>-<yyyMMdd-HHmmss>.zip"
                 echo
                 echo "Options:"
                 echo "  -h, --help      Show this help message"
@@ -82,7 +82,7 @@ snapshotProject() {
         script_dir=$(dirname "$(realpath "$BASH_SOURCE")")
         source "$script_dir/../config"
 
-        default_output_dir="$PROJECTS_PATH/ProjectZips"
+        default_output_dir="$PROJECTS_PATH/ProjectSnapshots"
         output_path="$default_output_dir/$output_name"
     fi
 
