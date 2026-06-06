@@ -114,7 +114,7 @@
         },
         {
             "name": "Project snapshot",
-            "description": "Creates a shareable project snapshot of the current folder, excluding common non-essential folders",
+            "description": "Creates a timestamped project snapshot in PROJECTS_PATH/ProjectZips, excludes common non-essential folders, and can optionally change to the output folder",
             "command": "snapshotProject",
             "aliases": [
                 "snapproj"
