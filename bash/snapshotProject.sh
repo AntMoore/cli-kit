@@ -3,13 +3,16 @@
 snapshotProject() {
     local script_dir
     local folder_name
-    local date_stamp
+    local timestamp
     local output_name
     local output_path
     local output_dir
     local zip_file_name
+    local change_directory
+    local exclude_name
     local default_output_dir
     local custom_output=false
+    local exclude_patterns=()
 
     # Folders commonly not useful for AI code reviews.
     local exclude_dirs=(
@@ -31,8 +34,8 @@ snapshotProject() {
     )
 
     folder_name="$(basename "$PWD")"
-    date_stamp="$(date +%Y%m%d)"
-    output_name="${folder_name}-${date_stamp}.zip"
+    timestamp="$(date +%Y%m%d-%H%M%S)"
+    output_name="${folder_name}-${timestamp}.zip"
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -40,7 +43,7 @@ snapshotProject() {
                 echo "Usage: snapshotProject [-o|--output <zip-file-name-or-path>]"
                 echo "Creates a shareable project snapshot of the current folder."
                 echo
-                echo "Default output: <PROJECTS_PATH>/ProjectZips/<current-folder>-<yyyMMdd>.zip"
+                echo "Default output: <PROJECTS_PATH>/ProjectZips/<current-folder>-<yyyMMdd-HHmmss>.zip"
                 echo
                 echo "Options:"
                 echo "  -h, --help      Show this help message"
@@ -92,33 +95,28 @@ snapshotProject() {
         return 1
     fi
 
+    for exclude_name in "${exclude_dirs[@]}"; do
+        exclude_patterns+=("${exclude_name}/*")
+        exclude_patterns+=("*/${exclude_name}/*")
+    done
+
+    exclude_patterns+=("*.zip" "$zip_file_name")
+
     if ! (
         cd "$PWD" &&
         rm -f "$output_path" &&
-        zip -r -q "$output_path" . \
-            -x "*/.git/*" \
-               "*/.vs/*" \
-               "*/.vscode/*" \
-               "*/.idea/*" \
-               "*/node_modules/*" \
-               "*/bin/*" \
-               "*/obj/*" \
-               "*/dist/*" \
-               "*/build/*" \
-               "*/out/*" \
-               "*/coverage/*" \
-               "*/.next/*" \
-               "*/.nuxt/*" \
-               "*/target/*" \
-               "*/.cache/*" \
-               "*.zip" \
-               "$zip_file_name"
+        zip -r -q "$output_path" . -x "${exclude_patterns[@]}"
     ); then
         echo "Error: Failed to create zip package."
         return 1
     fi
 
     echo "Created: $output_path"
+
+    read -r -p "Change to output folder? (y/n): " change_directory
+    if [[ "$change_directory" =~ ^[Yy]$ ]]; then
+        cd "$output_dir" || return 1
+    fi
 }
 
 alias snapproj="snapshotProject"
